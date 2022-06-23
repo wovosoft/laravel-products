@@ -4,15 +4,19 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Author Name",
-            "email": "author@email.com",
-            "homepage": "http://author.com"
+            "name": "Narayan Adhikary",
+            "email": "wovosoft@gmail.com",
+            "homepage": "https://github.com/wovosoft"
         }
     ],
     "homepage": "https://github.com/wovosoft/laravel-products",
     "keywords": [
         "Laravel",
-        "LaravelProducts"
+        "Products",
+        "POS",
+        "Sales",
+        "ERP",
+        "Stock Management"
     ],
     "require": {
         "illuminate/support": "~9",
