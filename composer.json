@@ -1,0 +1,45 @@
+{
+    "name": "wovosoft/laravel-products",
+    "description": ":package_description",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Author Name",
+            "email": "author@email.com",
+            "homepage": "http://author.com"
+        }
+    ],
+    "homepage": "https://github.com/wovosoft/laravel-products",
+    "keywords": [
+        "Laravel",
+        "LaravelProducts"
+    ],
+    "require": {
+        "illuminate/support": "~9",
+        "laravel/scout": "^9.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~9.0",
+        "orchestra/testbench": "~7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Wovosoft\\LaravelProducts\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Wovosoft\\LaravelProducts\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Wovosoft\\LaravelProducts\\LaravelProductsServiceProvider"
+            ],
+            "aliases": {
+                "LaravelProducts": "Wovosoft\\LaravelProducts\\Facades\\LaravelProducts"
+            }
+        }
+    }
+}
