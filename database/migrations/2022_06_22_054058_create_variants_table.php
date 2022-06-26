@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Wovosoft\LaravelProducts\Models\Variant;
 
 return new class extends Migration {
     /**
@@ -12,7 +13,7 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create(config("laravel-products.table.prefix") . 'variants', function (Blueprint $table) {
+        Schema::create(Variant::getTableName(), function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger("product_id");
             $table->string("title");
@@ -28,6 +29,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists(config("laravel-products.table.prefix") . 'variants');
+        Schema::dropIfExists(Variant::getTableName());
     }
 };

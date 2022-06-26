@@ -2,7 +2,7 @@
 
 namespace Wovosoft\LaravelProducts\Models;
 
-use Illuminate\Database\Eloquent\Builder;
+use Database\Factories\ProductFactory;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -13,10 +13,12 @@ use Laravel\Scout\Searchable;
 use Wovosoft\LaravelProducts\Enums\ProductTypes;
 use Wovosoft\LaravelProducts\Traits\HasCostAndPriceAttribute;
 use Wovosoft\LaravelProducts\Traits\HasTablePrefix;
+use Wovosoft\LaravelStockManager\Traits\HasStockQuantity;
 
 class Product extends Model
 {
-    use HasFactory, Searchable, HasTablePrefix, HasCostAndPriceAttribute;
+    use HasTablePrefix, HasFactory, Searchable;
+    use HasStockQuantity, HasCostAndPriceAttribute;
 
     protected $casts = [
         "type" => ProductTypes::class
@@ -36,6 +38,11 @@ class Product extends Model
             "cost" => ["numeric", "nullable"],
             "price" => ["numeric", "nullable"]
         ];
+    }
+
+    protected static function newFactory(): ProductFactory
+    {
+        return ProductFactory::new();
     }
 
     public function hasVariant(): Attribute

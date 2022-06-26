@@ -4,6 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Wovosoft\LaravelProducts\Enums\ProductTypes;
+use Wovosoft\LaravelProducts\Models\Product;
 
 return new class extends Migration {
     /**
@@ -13,7 +14,7 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create(config("laravel-products.table.prefix") . 'products', function (Blueprint $table) {
+        Schema::create(Product::getTableName(), function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('code');
@@ -36,6 +37,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists(config("laravel-products.table.prefix") .'products');
+        Schema::dropIfExists(Product::getTableName());
     }
 };

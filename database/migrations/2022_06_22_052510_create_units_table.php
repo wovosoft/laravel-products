@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Wovosoft\LaravelProducts\Models\Unit;
 
 return new class extends Migration {
     /**
@@ -12,7 +13,7 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create(config("laravel-products.table.prefix") . 'units', function (Blueprint $table) {
+        Schema::create(Unit::getTableName(), function (Blueprint $table) {
             $table->id();
             $table->string("name");
             $table->text("description")->nullable();
@@ -27,6 +28,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists(config("laravel-products.table.prefix") . 'units');
+        Schema::dropIfExists(Unit::getTableName());
     }
 };
