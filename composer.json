@@ -18,14 +18,6 @@
         "ERP",
         "Stock Management"
     ],
-    "require": {
-        "illuminate/support": "~9",
-        "laravel/scout": "^9.4"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "~9.0",
-        "orchestra/testbench": "~7"
-    },
     "autoload": {
         "psr-4": {
             "Wovosoft\\LaravelProducts\\": "src/"
